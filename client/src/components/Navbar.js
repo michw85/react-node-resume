@@ -1,0 +1,27 @@
+import React, {useContext} from 'react'
+import {NavLink, useHistory} from 'react-router-dom'
+
+export const Navbar = () => {
+    const history = useHistory()
+
+    const logoutHandler = event => {
+        event.preventDefault()
+        history.push('/')
+    }
+    return (
+        <nav>
+            <div className="nav-wrapper blue-grey darken-1"
+            style={{ padding: '0 2rem' }}
+            >
+                <span className="brand-logo">M.Vorontsov</span>
+                <ul  className="navig">
+                    <li><NavLink to="/home">Home</NavLink></li>
+                    <li><NavLink to="/experience">My experience</NavLink></li>
+                    <li><NavLink to="/works">My works</NavLink></li>
+                    <li><NavLink to="/contacts">My contacts</NavLink></li>
+                    <li><a href="/" onClick={logoutHandler}>Exit</a></li>
+                </ul>
+            </div>
+        </nav>
+    )
+}
